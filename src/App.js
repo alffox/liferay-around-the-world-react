@@ -39,15 +39,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, description } = this.state;
+    const { error, isLoaded } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
-        <p>{ description }</p>
+        <div className="container-fluid">
         <AtwHeader />
         </div>
       );
