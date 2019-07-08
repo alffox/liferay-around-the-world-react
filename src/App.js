@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import AtwHeader from "./modules/AtwHeader.js";
+
 
 const API = 'https://en.wikipedia.org/api/rest_v1/page/summary/Italy'; 
 
@@ -13,7 +15,6 @@ class App extends React.Component {
       description: []
     };
   }
-
 
   componentDidMount() {
     fetch(API)
@@ -45,7 +46,10 @@ class App extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
+        <div>
         <p>{ description }</p>
+        <AtwHeader />
+        </div>
       );
     }
   }
