@@ -1,8 +1,9 @@
 import React from 'react';
+import locationsData from './locations.json';
 import './App.css';
 
 import AtwHeader from "./modules/AtwHeader.js";
-
+import AtwFlags from "./modules/AtwFlags.js";
 
 const API = 'https://en.wikipedia.org/api/rest_v1/page/summary/Italy'; 
 
@@ -48,12 +49,12 @@ class App extends React.Component {
       return (
         <div className="container-fluid">
         <AtwHeader />
+        <AtwFlags />
         </div>
       );
     }
   }
 }
 
+export {locationsData};
 export default App;
-
-
