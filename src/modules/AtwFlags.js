@@ -13,7 +13,7 @@ class AtwFlags extends React.Component {
                         {locationsData.locations.map ((location, index) => {
 				            return (
                                 <button key={index} type="button" className="btn btn-info m-1 flag-top">
-                                    <div className={locationsData.locations[index].ISO_3166_1_alpha_2 + " flag-button mx-auto mr-3"}></div>{locationsData.locations[index].title}, {locationsData.locations[index].country}
+                                    <div className={location.ISO_3166_1_alpha_2 + " flag-button mx-auto mr-3"}></div>{location.title}, {location.country}
                                 </button>
                             );
                         })
