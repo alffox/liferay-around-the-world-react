@@ -4,6 +4,7 @@ import './App.css';
 
 import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
+import AtwTimeDate from "./modules/AtwTimeDate.js";
 
 const API = 'https://en.wikipedia.org/api/rest_v1/page/summary/Italy'; 
 
@@ -50,6 +51,7 @@ class App extends React.Component {
         <div className="container-fluid">
         <AtwHeader />
         <AtwFlags />
+        <AtwTimeDate />
         </div>
       );
     }
