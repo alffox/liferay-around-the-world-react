@@ -1,7 +1,5 @@
 import React from 'react';
-import {locationsData} from '../App.js';
-
-console.log(locationsData.locations);
+import { locationsData } from '../App.js';
 
 class AtwFlags extends React.Component {
 	  
@@ -22,7 +20,7 @@ class AtwFlags extends React.Component {
                 </div>
             </div>
             )
-        }
+        }        
     }
-    
+
 export default AtwFlags;
