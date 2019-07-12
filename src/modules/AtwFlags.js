@@ -2,6 +2,13 @@ import React from 'react';
 import { locationsData } from '../App.js';
 
 class AtwFlags extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
 	  
 	render() {
         return (

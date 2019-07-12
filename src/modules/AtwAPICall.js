@@ -8,9 +8,9 @@ const URL = restAPIServer + '/TimeDateEndpoint?format=json&by=zone&zone=' + loca
 
 class AtwAPICall extends React.Component {
     state = {
-        timeDate: [],
-        time: [],
-        date: []
+        timeDate: null,
+        time: null,
+        date: null
     }
 
 componentDidMount() {
