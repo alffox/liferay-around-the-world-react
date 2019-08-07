@@ -3,8 +3,7 @@ import axios from 'axios';
 
 import { locationsData } from '../App.js';
 
-const restAPIServer = 'https://liferay-around-the-world.herokuapp.com';
-const URL = restAPIServer + '/TimeDateEndpoint?format=json&by=zone&zone=' + locationsData.locations[0].timezone_database_name;
+const URL = process.env.REACT_APP_REST_API_SERVER + '/TimeDateEndpoint?format=json&by=zone&zone=' + locationsData.locations[0].timezone_database_name;
 
 class AtwAPICall extends React.Component {
     state = {
