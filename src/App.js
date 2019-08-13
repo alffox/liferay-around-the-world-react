@@ -4,7 +4,6 @@ import './App.css';
 
 import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
-import AtwTimeDate from "./modules/AtwTimeDate.js";
 
 class App extends React.Component {
 
@@ -13,7 +12,6 @@ class App extends React.Component {
         <div className="container-fluid">
         <AtwHeader />
         <AtwFlags />
-        <AtwTimeDate />
         </div>
       );
     }

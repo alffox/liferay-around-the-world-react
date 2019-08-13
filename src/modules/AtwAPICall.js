@@ -1,18 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 
-import { locationsData } from '../App.js';
+//import { locationsData } from '../App.js';
 
-const URL = process.env.REACT_APP_REST_API_SERVER + '/TimeDateEndpoint?format=json&by=zone&zone=' + locationsData.locations[0].timezone_database_name;
+//console.log("URL: " + URL);
+//locationsData.locations[0].timezone_database_name;
 
 class AtwAPICall extends React.Component {
-    state = {
+
+    state = {       
         timeDate: null,
         time: null,
         date: null
     }
-
+    
 componentDidMount() {
+        const URL = process.env.REACT_APP_REST_API_SERVER + "/TimeDateEndpoint?format=json&by=zone&zone=" + this.timeZoneDBName;
+
+        console.log(URL);
+
             axios.get(URL).then(response => response.data)
             .then((data) => {
             this.setState({
