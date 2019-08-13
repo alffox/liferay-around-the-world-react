@@ -1,7 +1,7 @@
 import React from 'react';
 
 class AtwTimeDate extends React.Component {
-	  
+    
     render() {
         return (
             <div className="col-md-12 text-info font-weight-bold text-center font-italic">
@@ -10,8 +10,8 @@ class AtwTimeDate extends React.Component {
                     <i className="far fa-clock"></i><span className="time px-1">{this.props.time}</span>
                 </div>
             </div>
-        )
-      }
+            )
+        }
     }
     
-export default AtwTimeDate;
+    export default AtwTimeDate;
