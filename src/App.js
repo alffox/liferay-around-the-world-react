@@ -20,10 +20,10 @@ class App extends React.Component {
     this.fetchTime(locationsData.locations[0].timezone_database_name)
   }
   
-  handleClick = (currentLocation,currentCountry,seltimeZoneDBName) => {
+  handleClick = (currentLocation,currentCountry,currentTimeZoneDBName) => {
     this.fetchCurrentLocation(currentLocation)
     this.fetchCurrentCountry(currentCountry)
-    this.fetchTime(seltimeZoneDBName)
+    this.fetchTime(currentTimeZoneDBName)
   }
 
   fetchCurrentLocation = (currentLocation) => {
@@ -38,8 +38,8 @@ class App extends React.Component {
       });
   }
 
-  fetchTime = (seltimeZoneDBName) => {
-      const URL = process.env.REACT_APP_REST_API_SERVER + '/TimeDateEndpoint?format=json&by=zone&zone=' + seltimeZoneDBName;
+  fetchTime = (currentTimeZoneDBName) => {
+      const URL = process.env.REACT_APP_REST_API_SERVER + '/TimeDateEndpoint?format=json&by=zone&zone=' + currentTimeZoneDBName;
       
       axios.get(URL).then(response => response.data)
       .then((data) => {
