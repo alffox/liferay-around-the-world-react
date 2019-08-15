@@ -6,8 +6,7 @@ class AtwCurrentLocation extends React.Component {
     return (
         <a className="navbar-brand ml-3" href="/#">
             <div className={this.props.classes}></div>
-            <div>{this.props.currentLocation}</div>
-            <div className="timedate text-center font-italic"></div>
+            <div>{this.props.currentLocation}, {this.props.currentCountry}</div>
         </a>
     );
 }

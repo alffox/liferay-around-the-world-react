@@ -14,6 +14,8 @@ class AtwFlags extends React.Component {
                                 <AtwFlag 
                                 key={index}
                                 handleClick={this.props.handleClick}
+                                currentLocation={location.title}
+                                currentCountry={location.country}
                                 seltimeZoneDBName={location.timezone_database_name}
                                 classes={location.ISO_3166_1_alpha_2 + " flag-button mx-auto mr-3"}
                                 locationTitle={location.title}

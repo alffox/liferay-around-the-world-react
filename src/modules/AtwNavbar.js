@@ -2,11 +2,13 @@ import React from "react";
 import AtwCurrentLocation from "./AtwCurrentLocation.js";
 
 class AtwNavbar extends React.Component {
-    
   render() {
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-info p-1">
-            <AtwCurrentLocation />  
+        <nav className="navbar navbar-expand-md navbar-dark bg-info p-1">            
+            <AtwCurrentLocation
+            currentLocation={this.props.currentLocation}
+            currentCountry={this.props.currentCountry}
+            />  
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropDowns" aria-controls="navbarDropDowns" aria-expanded="true" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
