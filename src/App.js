@@ -17,12 +17,14 @@ class App extends React.Component {
   componentDidMount () {
     this.fetchCurrentLocation(locationsData.locations[0].title)
     this.fetchCurrentCountry(locationsData.locations[0].country)
+    this.fetchCurrentLocationISO_3166_1_alpha_2(locationsData.locations[0].ISO_3166_1_alpha_2)
     this.fetchTime(locationsData.locations[0].timezone_database_name)
   }
   
-  handleClick = (currentLocation,currentCountry,currentTimeZoneDBName) => {
+  handleClick = (currentLocation,currentCountry,currentLocationISO_3166_1_alpha_2,currentTimeZoneDBName) => {
     this.fetchCurrentLocation(currentLocation)
     this.fetchCurrentCountry(currentCountry)
+    this.fetchCurrentLocationISO_3166_1_alpha_2(currentLocationISO_3166_1_alpha_2)
     this.fetchTime(currentTimeZoneDBName)
   }
 
@@ -35,6 +37,12 @@ class App extends React.Component {
   fetchCurrentCountry = (currentCountry) => {
     this.setState({
       currentCountry: currentCountry
+      });
+  }
+
+  fetchCurrentLocationISO_3166_1_alpha_2 = (currentLocationISO_3166_1_alpha_2) => {
+    this.setState({
+      currentLocationISO_3166_1_alpha_2: currentLocationISO_3166_1_alpha_2
       });
   }
 
@@ -65,6 +73,7 @@ class App extends React.Component {
         <AtwNavbar 
         currentLocation={this.state.currentLocation}
         currentCountry={this.state.currentCountry}
+        currentLocationISO_3166_1_alpha_2={this.state.currentLocationISO_3166_1_alpha_2}
         />
         </div>
       );
