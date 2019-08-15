@@ -1,5 +1,6 @@
 import React from "react";
 import AtwCurrentLocation from "./AtwCurrentLocation.js";
+import AtwNavbarToggler from "./AtwNavbarToggler.js"
 
 class AtwNavbar extends React.Component {
   render() {
@@ -9,10 +10,8 @@ class AtwNavbar extends React.Component {
             currentLocation={this.props.currentLocation}
             currentCountry={this.props.currentCountry}
             classes={this.props.currentLocationISO_3166_1_alpha_2 + " flag-navbar mx-auto"}
-            />  
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropDowns" aria-controls="navbarDropDowns" aria-expanded="true" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
+            />
+            <AtwNavbarToggler />
 
         <div className="navbar-collapse collapse show" id="navbarDropDowns">
             <ul className="navbar-nav ml-2">
