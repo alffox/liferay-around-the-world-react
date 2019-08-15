@@ -66,10 +66,10 @@ class App extends React.Component {
         locationsData={locationsData}
         handleClick={this.handleClick}
         />
-        <AtwTimeDate
+        {/* <AtwTimeDate
         date={this.state.date}
         time={this.state.time} 
-        />
+        /> */}
         <AtwNavbar 
         currentLocation={this.state.currentLocation}
         currentCountry={this.state.currentCountry}
