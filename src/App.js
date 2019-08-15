@@ -7,7 +7,7 @@ import locationsData from './locations.json';
 
 import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
-import AtwTimeDate from "./modules/AtwTimeDate.js";
+//import AtwTimeDate from "./modules/AtwTimeDate.js";
 import AtwNavbar from "./modules/AtwNavbar.js";
 
 class App extends React.Component {
