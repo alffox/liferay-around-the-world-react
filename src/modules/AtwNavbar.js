@@ -1,7 +1,6 @@
 import React from "react";
 import AtwCurrentLocation from "./AtwCurrentLocation.js";
 import AtwNavbarToggler from "./AtwNavbarToggler.js"
-import AtwNavbarDropDowns from "./AtwNavbarDropDowns.js"
 
 class AtwNavbar extends React.Component {
   render() {
@@ -13,7 +12,6 @@ class AtwNavbar extends React.Component {
             classes={this.props.currentLocationISO_3166_1_alpha_2 + " flag-navbar mx-auto"}
             />
             <AtwNavbarToggler />
-            <AtwNavbarDropDowns />
         </nav>
     );
   }

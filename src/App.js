@@ -70,7 +70,7 @@ class App extends React.Component {
         date={this.state.date}
         time={this.state.time} 
         /> */}
-        <AtwNavbar 
+        <AtwNavbar
         currentLocation={this.state.currentLocation}
         currentCountry={this.state.currentCountry}
         currentLocationISO_3166_1_alpha_2={this.state.currentLocationISO_3166_1_alpha_2}
