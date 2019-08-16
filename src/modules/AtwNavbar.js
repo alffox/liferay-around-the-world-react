@@ -1,6 +1,7 @@
 import React from "react";
 import AtwCurrentLocation from "./AtwCurrentLocation.js";
 import AtwNavbarToggler from "./AtwNavbarToggler.js";
+import AtwSearchLocation from "./AtwSearchLocation.js";
 
 class AtwNavbar extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class AtwNavbar extends React.Component {
             " flag-navbar mx-auto"
           }
         />
+        <AtwSearchLocation />
         <AtwNavbarToggler />
       </nav>
     );
