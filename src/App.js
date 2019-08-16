@@ -7,7 +7,7 @@ import locationsData from "./locations.json";
 
 import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
-//import AtwTimeDate from "./modules/AtwTimeDate.js";
+import AtwTimeDate from "./modules/AtwTimeDate.js";
 import AtwNavbar from "./modules/AtwNavbar.js";
 import AtwLocalData from "./modules/AtwLocalData.js";
 
@@ -80,10 +80,7 @@ class App extends React.Component {
           locationsData={locationsData}
           handleClick={this.handleClick}
         />
-        {/* <AtwTimeDate
-        date={this.state.date}
-        time={this.state.time} 
-        /> */}
+        <AtwTimeDate date={this.state.date} time={this.state.time} />
         <AtwNavbar
           currentLocation={this.state.currentLocation}
           currentCountry={this.state.currentCountry}

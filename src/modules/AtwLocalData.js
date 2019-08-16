@@ -7,6 +7,7 @@ class AtwLocalData extends React.Component {
   render() {
     return (
       <div className="row">
+        <main />
         <AtwLocalDataLeft />
         <AtwLocalDataRight />
       </div>
