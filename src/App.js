@@ -9,6 +9,7 @@ import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
 //import AtwTimeDate from "./modules/AtwTimeDate.js";
 import AtwNavbar from "./modules/AtwNavbar.js";
+import AtwLocalData from "./modules/AtwLocalData.js";
 
 class App extends React.Component {
   state = {};
@@ -90,6 +91,7 @@ class App extends React.Component {
             this.state.currentLocationISO_3166_1_alpha_2
           }
         />
+        <AtwLocalData />
       </div>
     );
   }
