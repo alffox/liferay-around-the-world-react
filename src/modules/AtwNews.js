@@ -1,32 +1,39 @@
 import React from "react";
 
+import AtwNew from "./AtwNew.js";
+
 class AtwNews extends React.Component {
   render() {
+    console.log(this.props.newsData);
     return (
       <section>
         <div className="news">
-          <ul className="list-group">
-            <li className="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1">
-              <img
-                className="lazy img-fluid img-thumbnail news-picture"
-                alt="Kyler Murray's Snap Clap Might Be A Problem - Deadspin"
-                src="https://i.kinja-img.com/gawker-media/image/upload/s--3BPNfldp--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/qaxg12vjpz4lro3qq5em.jpg"
-              />
-              <a
-                href="https://deadspin.com/kyler-murrays-snap-clap-might-be-a-problem-1837299279"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="list-group-item list-group-item-action active"
-              >
-                Kyler Murray's Snap Clap Might Be A Problem - Deadspin
-              </a>
-              <span className="badge badge-light badge-primary d-none d-xl-block">
-                Deadspin.com
-              </span>
-            </li>
-          </ul>
+          {this.props.newsData &&
+            this.props.newsData.map((article, index) => {
+              return (
+                <AtwNew
+                  key={index}
+                  articleTitle={article.title}
+                  articleURL={article.url}
+                  imageURL={article.urlToImage}
+                  articleSource={article.source.name}
+                />
+              );
+            })}
         </div>
       </section>
+
+      // for (var i = 0; i < news.articles.length; i++) {
+      //   var newsPicture = news.articles[i].urlToImage;
+      //   var newsTitle = news.articles[i].title;
+      //   var newsUrl = news.articles[i].url;
+      //   var newsSource = news.articles[i].source.name;
+
+      //   if (newsPicture === null || newsPicture.includes("http://")) {
+      //       var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-primary d-none d-xl-block">' + newsSource + '</span></li></ul>');
+      //   } else {
+      //       var newsHTML = ('<ul class="list-group"><li class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1"><img class="lazy img-fluid img-thumbnail news-picture" data-src="' + newsPicture + '" alt="' + newsTitle + '"><a href="' + newsUrl + '" target="_blank" class="list-group-item list-group-item-action active">' + newsTitle + '</a><span class="badge badge-light badge-primary d-none d-xl-block">' + newsSource + '</span></li></ul>');
+      //   }
     );
   }
 }

@@ -7,7 +7,7 @@ import locationsData from "./locations.json";
 
 import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
-import AtwTimeDate from "./modules/AtwTimeDate.js";
+//import AtwTimeDate from "./modules/AtwTimeDate.js";
 import AtwNavbar from "./modules/AtwNavbar.js";
 import AtwLocalData from "./modules/AtwLocalData.js";
 
@@ -21,6 +21,10 @@ class App extends React.Component {
       locationsData.locations[0].ISO_3166_1_alpha_2
     );
     this.fetchTime(locationsData.locations[0].timezone_database_name);
+    this.fetchNews(
+      locationsData.locations[0].country,
+      locationsData.locations[0].ISO_3166_1_alpha_2
+    );
   }
 
   handleClick = (
@@ -35,6 +39,7 @@ class App extends React.Component {
       currentLocationISO_3166_1_alpha_2
     );
     this.fetchTime(currentTimeZoneDBName);
+    this.fetchNews(currentCountry, currentLocationISO_3166_1_alpha_2);
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -72,6 +77,34 @@ class App extends React.Component {
       });
   };
 
+  fetchNews = (currentCountry,currentLocationISO_3166_1_alpha_2) => {
+    //console.log(currentCountry, currentLocationISO_3166_1_alpha_2)
+
+    const topRegionalNewsURL =
+      process.env.REACT_APP_REST_API_SERVER +
+      "/topHeadlinesEndpoint?pageSize=6&country=" +
+      currentLocationISO_3166_1_alpha_2;
+
+    const everythingEnglishNewsURL =
+      process.env.REACT_APP_REST_API_SERVER +
+      "/everythingNewsEndpoint?domains=nytimes.com,bbc.co.uk,reuters.com&excludeDomains=jpost.com&sortBy=popularity&pageSize=8&q=" +
+      currentCountry;
+
+    const topTechNewsURL =
+      process.env.REACT_APP_REST_API_SERVER +
+      "/topHeadlinesEndpoint?category=technology&pageSize=4&country=" +
+      currentLocationISO_3166_1_alpha_2;
+
+    axios
+      .get(topRegionalNewsURL, everythingEnglishNewsURL, topTechNewsURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          newsData: data.articles
+        });
+      });
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -80,7 +113,7 @@ class App extends React.Component {
           locationsData={locationsData}
           handleClick={this.handleClick}
         />
-        <AtwTimeDate date={this.state.date} time={this.state.time} />
+        {/* <AtwTimeDate date={this.state.date} time={this.state.time} /> */}
         <AtwNavbar
           currentLocation={this.state.currentLocation}
           currentCountry={this.state.currentCountry}
@@ -88,7 +121,8 @@ class App extends React.Component {
             this.state.currentLocationISO_3166_1_alpha_2
           }
         />
-        <AtwLocalData />
+        <AtwLocalData 
+        newsData={this.state.newsData}/>
       </div>
     );
   }

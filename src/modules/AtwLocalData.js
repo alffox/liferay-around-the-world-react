@@ -4,11 +4,13 @@ import AtwLocalDataLeft from "./AtwLocalDataLeft.js";
 import AtwLocalDataRight from "./AtwLocalDataRight.js";
 
 class AtwLocalData extends React.Component {
+
   render() {
     return (
       <div className="row">
         <main />
-        <AtwLocalDataLeft />
+        <AtwLocalDataLeft 
+        newsData={this.props.newsData}/>
         <AtwLocalDataRight />
       </div>
     );
