@@ -3,7 +3,7 @@ import React from "react";
 import AtwCardHeader from "./AtwCardHeader.js";
 import AtwNews from "./AtwNews.js";
 
-class AtwCard extends React.Component {
+class AtwNewsCard extends React.Component {
   render() {
     return (
       <div className="card w-100 mt-1">
@@ -15,10 +15,9 @@ class AtwCard extends React.Component {
         <AtwNews newsData={this.props.englishNewsData} />
         <AtwNews newsData={this.props.regionalNewsData} />
         <AtwNews newsData={this.props.techNewsData} />
-        />
       </div>
     );
   }
 }
 
-export default AtwCard;
+export default AtwNewsCard;
