@@ -21,10 +21,9 @@ class App extends React.Component {
       locationsData.locations[0].ISO_3166_1_alpha_2
     );
     this.fetchTime(locationsData.locations[0].timezone_database_name);
-    this.fetchNews(
-      locationsData.locations[0].country,
-      locationsData.locations[0].ISO_3166_1_alpha_2
-    );
+    this.fetchEnglishNews(locationsData.locations[0].country);
+    this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
+    this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
   }
 
   handleClick = (
@@ -39,7 +38,9 @@ class App extends React.Component {
       currentLocationISO_3166_1_alpha_2
     );
     this.fetchTime(currentTimeZoneDBName);
-    this.fetchNews(currentCountry, currentLocationISO_3166_1_alpha_2);
+    this.fetchEnglishNews(currentCountry);
+    this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
+    this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -77,30 +78,50 @@ class App extends React.Component {
       });
   };
 
-  fetchNews = (currentCountry,currentLocationISO_3166_1_alpha_2) => {
-    //console.log(currentCountry, currentLocationISO_3166_1_alpha_2)
-
-    const topRegionalNewsURL =
-      process.env.REACT_APP_REST_API_SERVER +
-      "/topHeadlinesEndpoint?pageSize=6&country=" +
-      currentLocationISO_3166_1_alpha_2;
-
-    const everythingEnglishNewsURL =
+  fetchEnglishNews = currentCountry => {
+    const englishNewsURL =
       process.env.REACT_APP_REST_API_SERVER +
       "/everythingNewsEndpoint?domains=nytimes.com,bbc.co.uk,reuters.com&excludeDomains=jpost.com&sortBy=popularity&pageSize=8&q=" +
       currentCountry;
 
-    const topTechNewsURL =
+    axios
+      .get(englishNewsURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          englishNewsData: data.articles
+        });
+      });
+  };
+
+  fetchHeadlinesNews = currentLocationISO_3166_1_alpha_2 => {
+    const regionalNewsURL =
+      process.env.REACT_APP_REST_API_SERVER +
+      "/topHeadlinesEndpoint?pageSize=6&country=" +
+      currentLocationISO_3166_1_alpha_2;
+
+    axios
+      .get(regionalNewsURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          regionalNewsData: data.articles
+        });
+      });
+  };
+
+  fetchTechNews = currentLocationISO_3166_1_alpha_2 => {
+    const techNewsURL =
       process.env.REACT_APP_REST_API_SERVER +
       "/topHeadlinesEndpoint?category=technology&pageSize=4&country=" +
       currentLocationISO_3166_1_alpha_2;
 
     axios
-      .get(topRegionalNewsURL, everythingEnglishNewsURL, topTechNewsURL)
+      .get(techNewsURL)
       .then(response => response.data)
       .then(data => {
         this.setState({
-          newsData: data.articles
+          techNewsData: data.articles
         });
       });
   };
@@ -121,8 +142,11 @@ class App extends React.Component {
             this.state.currentLocationISO_3166_1_alpha_2
           }
         />
-        <AtwLocalData 
-        newsData={this.state.newsData}/>
+        <AtwLocalData
+          englishNewsData={this.state.englishNewsData}
+          regionalNewsData={this.state.regionalNewsData}
+          techNewsData={this.state.techNewsData}
+        />
       </div>
     );
   }
