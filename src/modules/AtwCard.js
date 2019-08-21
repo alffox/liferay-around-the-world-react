@@ -7,11 +7,14 @@ class AtwCard extends React.Component {
   render() {
     return (
       <div className="card w-100 mt-1">
-        <AtwCardHeader />
-        <AtwNews
-          englishNewsData={this.props.englishNewsData}
-          regionalNewsData={this.props.regionalNewsData}
-          techNewsData={this.props.techNewsData}
+        <AtwCardHeader
+          cardKey="News"
+          APIAttribution="News API"
+          APIURL="https://newsapi.org/"
+        />
+        <AtwNews newsData={this.props.englishNewsData} />
+        <AtwNews newsData={this.props.regionalNewsData} />
+        <AtwNews newsData={this.props.techNewsData} />
         />
       </div>
     );

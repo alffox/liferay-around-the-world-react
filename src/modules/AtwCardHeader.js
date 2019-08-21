@@ -4,11 +4,12 @@ class AtwCardHeader extends React.Component {
   render() {
     return (
       <div className="card-header py-1">
-        Latest local news
+        {this.props.cardKey}
         <span className="news-current-location" />
         <p>
           <small>
-            Powered by <a href="https://newsapi.org/">News API</a>
+            Powered by{" "}
+            <a href={this.props.APIURL}>{this.props.APIAttribution}</a>
           </small>
         </p>
       </div>

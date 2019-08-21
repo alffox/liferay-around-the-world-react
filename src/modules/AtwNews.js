@@ -1,17 +1,26 @@
 import React from "react";
 
-import AtwEnglishNews from "./AtwEnglishNews.js";
-import AtwRegionalNews from "./AtwRegionalNews.js";
-import AtwTechNews from "./AtwTechNews.js";
+import AtwNew from "./AtwNew.js";
 
 class AtwNews extends React.Component {
   render() {
     return (
       <section>
         <div className="news">
-          <AtwEnglishNews englishNewsData={this.props.englishNewsData} />
-          <AtwRegionalNews regionalNewsData={this.props.regionalNewsData} />
-          <AtwTechNews techNewsData={this.props.techNewsData} />
+          <div>
+            {this.props.newsData &&
+              this.props.newsData.map((article, index) => {
+                return (
+                  <AtwNew
+                    key={index}
+                    articleTitle={article.title}
+                    articleURL={article.url}
+                    imageURL={article.urlToImage}
+                    articleSource={article.source.name}
+                  />
+                );
+              })}
+          </div>
         </div>
       </section>
     );
