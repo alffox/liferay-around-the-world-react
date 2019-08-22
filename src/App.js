@@ -25,7 +25,8 @@ class App extends React.Component {
     this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
     this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
     this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);;
+    this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
   }
 
   handleClick = (
@@ -47,6 +48,7 @@ class App extends React.Component {
     this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
     this.fetchWeather(currentLatitude, currentLongitude);
     this.fetchWeatherForecast(currentLatitude, currentLongitude);
+    this.fetchMapCoordinates(currentLatitude, currentLongitude)
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -170,6 +172,13 @@ class App extends React.Component {
       });
   };
 
+  fetchMapCoordinates = (currentLatitude, currentLongitude) => {
+    this.setState({
+      currentLatitude: currentLatitude,
+      currentLongitude: currentLongitude
+    });
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -195,6 +204,8 @@ class App extends React.Component {
           currentWeatherDescription={this.state.currentWeatherDescription}
           currentIconURL={this.state.currentIconURL}
           forecastData={this.state.forecastData}
+          currentLatitude={this.state.currentLatitude}
+          currentLongitude={this.state.currentLongitude}
         />
       </div>
     );
