@@ -24,13 +24,16 @@ class App extends React.Component {
     this.fetchEnglishNews(locationsData.locations[0].country);
     this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
     this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
+    this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
   }
 
   handleClick = (
     currentLocation,
     currentCountry,
     currentLocationISO_3166_1_alpha_2,
-    currentTimeZoneDBName
+    currentTimeZoneDBName,
+    currentLatitude,
+    currentLongitude
   ) => {
     this.fetchCurrentLocation(currentLocation);
     this.fetchCurrentCountry(currentCountry);
@@ -41,6 +44,7 @@ class App extends React.Component {
     this.fetchEnglishNews(currentCountry);
     this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
     this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
+    this.fetchWeather(currentLatitude, currentLongitude)
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -126,6 +130,27 @@ class App extends React.Component {
       });
   };
 
+  fetchWeather = (currentLatitude, currentLongitude) => {
+    const weatherURL = process.env.REACT_APP_REST_API_SERVER +
+      "/weatherEndpoint?lat=" +
+      currentLatitude +
+      "&lon=" +
+      currentLongitude +
+      "&units=metric"
+
+    axios
+      .get(weatherURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          currentTemperature: Math.round(data.main.temp),
+          currentWeatherDescription: data.weather[0].main,
+          currentIconURL: "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+        });
+      });
+
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -143,9 +168,13 @@ class App extends React.Component {
           }
         />
         <AtwLocalData
+          currentLocation={this.state.currentLocation}
           englishNewsData={this.state.englishNewsData}
           regionalNewsData={this.state.regionalNewsData}
           techNewsData={this.state.techNewsData}
+          currentTemperature={this.state.currentTemperature}
+          currentWeatherDescription={this.state.currentWeatherDescription}
+          currentIconURL={this.state.currentIconURL}
         />
       </div>
     );

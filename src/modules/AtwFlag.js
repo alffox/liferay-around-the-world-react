@@ -9,7 +9,9 @@ class AtwFlag extends React.Component {
           this.props.currentLocation,
           this.props.currentCountry,
           this.props.currentLocationISO_3166_1_alpha_2,
-          this.props.currentTimeZoneDBName
+          this.props.currentTimeZoneDBName,
+          this.props.currentLatitude,
+          this.props.currentLongitude
         )}
         key={this.props.index}
         type="button"

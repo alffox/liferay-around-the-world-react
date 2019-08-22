@@ -22,6 +22,8 @@ class AtwFlags extends React.Component {
                   classes={
                     location.ISO_3166_1_alpha_2 + " flag-button mx-auto mr-3"
                   }
+                  currentLatitude={location.location.lat}
+                  currentLongitude={location.location.lon}
                   locationTitle={location.title}
                   locationCountry={location.country}
                 />

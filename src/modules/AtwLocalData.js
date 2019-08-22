@@ -13,7 +13,12 @@ class AtwLocalData extends React.Component {
           regionalNewsData={this.props.regionalNewsData}
           techNewsData={this.props.techNewsData}
         />
-        <AtwLocalDataRight />
+        <AtwLocalDataRight
+          currentLocation={this.props.currentLocation}
+          currentTemperature={this.props.currentTemperature}
+          currentWeatherDescription={this.props.currentWeatherDescription}
+          currentIconURL={this.props.currentIconURL}
+        />
       </div>
     );
   }
