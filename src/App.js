@@ -25,6 +25,7 @@ class App extends React.Component {
     this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
     this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
     this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);;
   }
 
   handleClick = (
@@ -44,7 +45,8 @@ class App extends React.Component {
     this.fetchEnglishNews(currentCountry);
     this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
     this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
-    this.fetchWeather(currentLatitude, currentLongitude)
+    this.fetchWeather(currentLatitude, currentLongitude);
+    this.fetchWeatherForecast(currentLatitude, currentLongitude);
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -148,7 +150,24 @@ class App extends React.Component {
           currentIconURL: "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
         });
       });
+  };
 
+  fetchWeatherForecast = (currentLatitude, currentLongitude) => {
+    const weatherForecastURL = process.env.REACT_APP_REST_API_SERVER +
+      "/forecastEndpoint?lat=" +
+      currentLatitude +
+      "&lon=" +
+      currentLongitude +
+      "&units=metric"
+
+    axios
+      .get(weatherForecastURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          forecastData: data.list.filter(item => item.dt_txt.includes("12:00:00"))
+        });
+      });
   };
 
   render() {
@@ -175,6 +194,7 @@ class App extends React.Component {
           currentTemperature={this.state.currentTemperature}
           currentWeatherDescription={this.state.currentWeatherDescription}
           currentIconURL={this.state.currentIconURL}
+          forecastData={this.state.forecastData}
         />
       </div>
     );

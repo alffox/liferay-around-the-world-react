@@ -5,7 +5,6 @@ class AtwCardHeader extends React.Component {
     return (
       <div className="card-header py-1">
         {this.props.cardKey}
-        <span className="news-current-location" />
         <p>
           <small>
             Powered by{" "}

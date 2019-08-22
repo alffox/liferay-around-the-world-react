@@ -1,7 +1,7 @@
 import React from "react";
 
 import AtwCardHeader from "./AtwCardHeader.js";
-import AtwCurrentWeather from "./AtwCurrentWeather.js"
+import AtwWeather from "./AtwWeather.js"
 
 class AtwWeatherCard extends React.Component {
     render() {
@@ -12,11 +12,12 @@ class AtwWeatherCard extends React.Component {
                     APIAttribution="OpenWeatherMap.org"
                     APIURL="https://openweathermap.org/"
                 />
-                <AtwCurrentWeather
+                <AtwWeather
                     currentLocation={this.props.currentLocation}
                     currentTemperature={this.props.currentTemperature}
                     currentWeatherDescription={this.props.currentWeatherDescription}
                     currentIconURL={this.props.currentIconURL}
+                    forecastData={this.props.forecastData}
                 />
             </div>
         );
