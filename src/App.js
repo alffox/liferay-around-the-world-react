@@ -27,7 +27,8 @@ class App extends React.Component {
     // this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
     // this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
     // this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
+    // this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
+    this.fetchWikiData(locationsData.locations[0].country);
   }
 
   handleClick = (
@@ -50,7 +51,8 @@ class App extends React.Component {
     // this.fetchWeather(currentLatitude, currentLongitude);
     // this.fetchWeatherForecast(currentLatitude, currentLongitude);
     // this.fetchMapCoordinates(currentLatitude, currentLongitude)
-    this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
+    // this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
+    this.fetchWikiData(currentCountry);
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -182,7 +184,6 @@ class App extends React.Component {
   };
 
   fetchWebCamData = (currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2) => {
-
     const webCamDataURL = process.env.REACT_APP_REST_API_SERVER +
       "/webcamEndpoint?countryCode=" +
       currentLocationISO_3166_1_alpha_2 +
@@ -197,6 +198,23 @@ class App extends React.Component {
       .then(data => {
         this.setState({
           webCamData: data.result.webcams
+        });
+      });
+  };
+
+  fetchWikiData = currentCountry => {
+    const wikiDataURL = "https://en.wikipedia.org/api/rest_v1/page/summary/" +
+      currentCountry;
+
+    axios
+      .get(wikiDataURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          wikiData: data,
+          wikiExtract: data.extract,
+          wikiTitle: data.title,
+          wikiUrl: data.content_urls.mobile.page
         });
       });
   };
@@ -229,6 +247,9 @@ class App extends React.Component {
           currentLatitude={this.state.currentLatitude}
           currentLongitude={this.state.currentLongitude}
           webCamData={this.state.webCamData}
+          wikiExtract={this.state.wikiExtract}
+          wikiTitle={this.state.wikiTitle}
+          wikiUrl={this.state.wikiUrl}
         />
       </div>
     );

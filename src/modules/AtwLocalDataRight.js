@@ -3,6 +3,7 @@ import React from "react";
 import AtwWeatherCard from "./AtwWeatherCard.js";
 import MapContainer from "./MapContainer.js"
 import AtwWebCamCard from "./AtwWebCamCard.js";
+import AtwWikiCard from "./AtwWikiCard.js";
 
 class AtwLocalDataRight extends React.Component {
   render() {
@@ -21,6 +22,11 @@ class AtwLocalDataRight extends React.Component {
         /> */}
         <AtwWebCamCard
           webCamData={this.props.webCamData}
+        />
+        <AtwWikiCard
+          wikiExtract={this.props.wikiExtract}
+          wikiTitle={this.props.wikiTitle}
+          wikiUrl={this.props.wikiUrl}
         />
       </div>
     );
