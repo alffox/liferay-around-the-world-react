@@ -20,13 +20,14 @@ class App extends React.Component {
     this.fetchCurrentLocationISO_3166_1_alpha_2(
       locationsData.locations[0].ISO_3166_1_alpha_2
     );
-    this.fetchTime(locationsData.locations[0].timezone_database_name);
-    this.fetchEnglishNews(locationsData.locations[0].country);
-    this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
-    this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
-    this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    // this.fetchTime(locationsData.locations[0].timezone_database_name);
+    // this.fetchEnglishNews(locationsData.locations[0].country);
+    // this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
+    // this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
+    // this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    // this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    // this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
   }
 
   handleClick = (
@@ -42,13 +43,14 @@ class App extends React.Component {
     this.fetchCurrentLocationISO_3166_1_alpha_2(
       currentLocationISO_3166_1_alpha_2
     );
-    this.fetchTime(currentTimeZoneDBName);
-    this.fetchEnglishNews(currentCountry);
-    this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
-    this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
-    this.fetchWeather(currentLatitude, currentLongitude);
-    this.fetchWeatherForecast(currentLatitude, currentLongitude);
-    this.fetchMapCoordinates(currentLatitude, currentLongitude)
+    // this.fetchTime(currentTimeZoneDBName);
+    // this.fetchEnglishNews(currentCountry);
+    // this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
+    // this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
+    // this.fetchWeather(currentLatitude, currentLongitude);
+    // this.fetchWeatherForecast(currentLatitude, currentLongitude);
+    // this.fetchMapCoordinates(currentLatitude, currentLongitude)
+    this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -179,6 +181,26 @@ class App extends React.Component {
     });
   };
 
+  fetchWebCamData = (currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2) => {
+
+    const webCamDataURL = process.env.REACT_APP_REST_API_SERVER +
+      "/webcamEndpoint?countryCode=" +
+      currentLocationISO_3166_1_alpha_2 +
+      "&lat=" +
+      currentLatitude +
+      "&lon=" +
+      currentLongitude
+
+    axios
+      .get(webCamDataURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          webCamData: data.result.webcams
+        });
+      });
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -206,6 +228,7 @@ class App extends React.Component {
           forecastData={this.state.forecastData}
           currentLatitude={this.state.currentLatitude}
           currentLongitude={this.state.currentLongitude}
+          webCamData={this.state.webCamData}
         />
       </div>
     );

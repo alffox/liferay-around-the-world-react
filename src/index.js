@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/js/all.js'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+// import '@fortawesome/fontawesome-free/js/all.js';
 
 import './index.css';
 import './custom.css';
