@@ -1,68 +1,69 @@
+![A paper airplane](https://github.com/alffox/liferay-around-the-world-react/blob/master/public/favicon.ico)
+
+# Liferay Around the World
+
+See a demo app version at: https://liferay-around-the-world.herokuapp.com/
+
+Liferay Around the World is a React Application showing information for Liferay locations around the world: https://www.liferay.com/locations
+
+All APIs have been used for demo, non-commercial purposes. You may read more here: https://github.com/alffox/liferay-around-the-world-react#api--credit
+
+## Purpose of this project
+Back in late 90's when having an internet connection was not always possible, I used to get to know people from all over the world through paper letters. At a point, I decided to ask each of my penpals to draw a flag of the country they were writing from and send it back to me. Eventually, after collecting all of them, I could get a huge poster, hanging on my room's wall, showing me the colors of the world I was in touch with. This project is inspired by those times.
+
+Where are my co-workers worldwide living? What's going on at their location right now? How can I get to know better other Liferay offices worldwide countries?
+
+And also: What's going on at my location at the moment? How can I get useful information, all in one place ?
+
+**Around the World** would like to cover this needs and encourage the global mutual knowledge of our countries. The name is inspired by a popular song of the late 90's: https://en.wikipedia.org/wiki/Around_the_World_(Red_Hot_Chili_Peppers_song)
+
+## Can I edit the location list ?
+
+Yes. To add or modify locations:
+
+1) Edit the file https://github.com/alffox/liferay-around-the-world-react/blob/master/src/locations.json and populate the json array with the location of your choice:
+
+---
+* **title**: Required. Location's city name
+* **continent**: Required. Location's city continent. Possible choices are: Americas, Europe, Africa, Asia-Pacific)
+* **country**: Required. Location's city country
+* **ISO_3166_1_alpha_2**: Required. Location's city ISO 3166 1 alpha 2 code, 2 digits, lower case. Use this site as reference: https://en.wikipedia.org/wiki/ISO_3166-2
+* **timezone_database_name**: Required. Use a value from the "Time Zone" column of this list: https://timezonedb.com/time-zones
+**state_name**: Optional. Location's city state name
+**state_code**: Optional. Location's city state code
+* **language**: Required. Location's most spoken language, ISO 639-1 Code format, 2 digits, lower case. Use this list as reference: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+* **location**: Required. Location's latitude and longitude. Use this site to find them: https://google-developers.appspot.com/maps/documentation/utils/geocoder/
+---
+
+## Information displayed
+The **Navigation bar** displays the currently selected location, the current date and time at that location and other available locations, ordered in dropdown lists by continents
+
+**Time and Date** will appear under the flags list at the top and they will indicate the current time and date on the clicked location
+
+**Latest local news** displays the recent local news for the selected country ordered like this: 8 top headlines in English, 6 top headlines in the local language, 2 top headlines news about technical topics in English. All news will show the source where they come from and a picture if present 
+
+**Weather** displays the weather and temperature at the selected location and forecasts for the next 5 days
+
+**Map** represents the currently selected location on Google Maps
+
+**Nearby web cams** shows 10 web cams snapshots in a slider, taken at the current location and time
+
+**Wiki** shows the first information for the selected country from Wikipedia.org
+
+**Pictures** at the bottom shows selected pictures for the selected country
+
+## Technical details
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The app is created with the React framework: https://reactjs.org/
+The app is optimized for being used on mobile devices through [Bootstrap CSS](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 
-## Available Scripts
+A jQuery version of this same app is available at: https://github.com/alffox/around-the-world
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### API / Credit
+- [News API](https://newsapi.org/)
+- [OpenWeatherMap](https://openweathermap.org/)
+- [Webcams.travel](https://www.webcams.travel/)
+- [Wikipedia](https://en.wikipedia.org)
+- [Unsplash](https://unsplash.com/)
+- [GoogleMaps API](https://developers.google.com/maps/documentation/)
+- [TimeZoneDB.com](https://timezonedb.com/)
