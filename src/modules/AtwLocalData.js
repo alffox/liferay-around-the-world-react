@@ -2,6 +2,7 @@ import React from "react";
 
 import AtwLocalDataLeft from "./AtwLocalDataLeft.js";
 import AtwLocalDataRight from "./AtwLocalDataRight.js";
+import AtwLocalDataBottom from "./AtwLocalDataBottom.js";
 
 class AtwLocalData extends React.Component {
   render() {
@@ -25,6 +26,10 @@ class AtwLocalData extends React.Component {
           wikiExtract={this.props.wikiExtract}
           wikiTitle={this.props.wikiTitle}
           wikiUrl={this.props.wikiUrl}
+          picturesData={this.props.picturesData}
+        />
+        <AtwLocalDataBottom
+          picturesData={this.props.picturesData}
         />
       </div>
     );

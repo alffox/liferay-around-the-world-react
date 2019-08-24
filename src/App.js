@@ -7,7 +7,7 @@ import locationsData from "./locations.json";
 
 import AtwHeader from "./modules/AtwHeader.js";
 import AtwFlags from "./modules/AtwFlags.js";
-//import AtwTimeDate from "./modules/AtwTimeDate.js";
+import AtwTimeDate from "./modules/AtwTimeDate.js";
 import AtwNavbar from "./modules/AtwNavbar.js";
 import AtwLocalData from "./modules/AtwLocalData.js";
 
@@ -28,7 +28,8 @@ class App extends React.Component {
     // this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
     // this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
     // this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
-    this.fetchWikiData(locationsData.locations[0].country);
+    // this.fetchWikiData(locationsData.locations[0].country);
+    this.fetchPictures(locationsData.locations[0].country);
   }
 
   handleClick = (
@@ -52,7 +53,8 @@ class App extends React.Component {
     // this.fetchWeatherForecast(currentLatitude, currentLongitude);
     // this.fetchMapCoordinates(currentLatitude, currentLongitude)
     // this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
-    this.fetchWikiData(currentCountry);
+    // this.fetchWikiData(currentCountry);
+    this.fetchPictures(currentCountry);
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -211,10 +213,28 @@ class App extends React.Component {
       .then(response => response.data)
       .then(data => {
         this.setState({
-          wikiData: data,
           wikiExtract: data.extract,
           wikiTitle: data.title,
           wikiUrl: data.content_urls.mobile.page
+        });
+      });
+  };
+
+  fetchPictures = currentCountry => {
+    const randomPicturesPageNumber = Math.floor(Math.random() * 20); //helps to display mostly new pictures upon refreshing the page
+
+    const picturesDataURL = process.env.REACT_APP_REST_API_SERVER +
+      "/picturesEndpoint?page=" +
+      randomPicturesPageNumber +
+      "&query=" +
+      currentCountry;
+
+    axios
+      .get(picturesDataURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          picturesData: data.results
         });
       });
   };
@@ -250,6 +270,7 @@ class App extends React.Component {
           wikiExtract={this.state.wikiExtract}
           wikiTitle={this.state.wikiTitle}
           wikiUrl={this.state.wikiUrl}
+          picturesData={this.state.picturesData}
         />
       </div>
     );
