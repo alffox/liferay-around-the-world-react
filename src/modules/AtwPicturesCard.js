@@ -4,7 +4,6 @@ import AtwPicture from "./AtwPicture.js";
 
 class AtwPicturesCard extends React.Component {
     render() {
-        console.log(this.props.picturesData)
         return (
             <div className="card-columns w-100 mt-4">
                 {this.props.picturesData &&
