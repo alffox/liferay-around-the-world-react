@@ -10,6 +10,7 @@ import AtwFlags from "./modules/AtwFlags.js";
 import AtwTimeDate from "./modules/AtwTimeDate.js";
 import AtwNavbar from "./modules/AtwNavbar.js";
 import AtwLocalData from "./modules/AtwLocalData.js";
+import AtwFooter from "./modules/AtwFooter.js";
 
 class App extends React.Component {
   state = {};
@@ -29,7 +30,7 @@ class App extends React.Component {
     // this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
     // this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
     // this.fetchWikiData(locationsData.locations[0].country);
-    this.fetchPictures(locationsData.locations[0].country);
+    // this.fetchPictures(locationsData.locations[0].country);
   }
 
   handleClick = (
@@ -54,7 +55,7 @@ class App extends React.Component {
     // this.fetchMapCoordinates(currentLatitude, currentLongitude)
     // this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
     // this.fetchWikiData(currentCountry);
-    this.fetchPictures(currentCountry);
+    // this.fetchPictures(currentCountry);
   };
 
   fetchCurrentLocation = currentLocation => {
@@ -247,7 +248,7 @@ class App extends React.Component {
           locationsData={locationsData}
           handleClick={this.handleClick}
         />
-        {/* <AtwTimeDate date={this.state.date} time={this.state.time} /> */}
+        <AtwTimeDate date={this.state.date} time={this.state.time} />
         <AtwNavbar
           currentLocation={this.state.currentLocation}
           currentCountry={this.state.currentCountry}
@@ -272,6 +273,7 @@ class App extends React.Component {
           wikiUrl={this.state.wikiUrl}
           picturesData={this.state.picturesData}
         />
+        <AtwFooter />
       </div>
     );
   }

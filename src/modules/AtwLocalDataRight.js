@@ -15,11 +15,11 @@ class AtwLocalDataRight extends React.Component {
           currentWeatherDescription={this.props.currentWeatherDescription}
           currentIconURL={this.props.currentIconURL}
           forecastData={this.props.forecastData}
-        /> */}
-        {/* <MapContainer
+        />
+        <MapContainer
           currentLatitude={this.props.currentLatitude}
           currentLongitude={this.props.currentLongitude}
-        /> */}
+        />
         <AtwWebCamCard
           webCamData={this.props.webCamData}
         />
@@ -27,7 +27,7 @@ class AtwLocalDataRight extends React.Component {
           wikiExtract={this.props.wikiExtract}
           wikiTitle={this.props.wikiTitle}
           wikiUrl={this.props.wikiUrl}
-        />
+        /> */}
       </div>
     );
   }
