@@ -1,15 +1,19 @@
 import React from "react";
 
+import LazyLoad from 'react-lazyload';
+
 class AtwNew extends React.Component {
   render() {
     return (
       <ul className="list-group">
         <li className="list-group-item list-group-item-action active d-flex justify-content-between align-items-center mt-1">
-          <img
-            className="lazy img-fluid img-thumbnail news-picture"
-            alt={this.props.articleTitle}
-            src={this.props.imageURL}
-          />
+          <LazyLoad>
+            <img
+              className="img-fluid img-thumbnail news-picture"
+              alt={this.props.articleTitle}
+              src={this.props.imageURL}
+            />
+          </LazyLoad>
           <a
             href={this.props.articleURL}
             target="_blank"

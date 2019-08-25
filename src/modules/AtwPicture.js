@@ -1,11 +1,15 @@
 import React from "react";
 
+import LazyLoad from 'react-lazyload';
+
 class AtwPicture extends React.Component {
     render() {
         return (
             <div className="card pictures text-center">
                 <a href={this.props.pictureURL} target="_blank" rel="noopener noreferrer">
-                    <img className="card-img-top img-fluid lazy" src={this.props.pictureURL} alt={this.props.pictureDescription} />
+                    <LazyLoad>
+                        <img className="card-img-top img-fluid" src={this.props.pictureURL} alt={this.props.pictureDescription} />
+                    </LazyLoad>
                 </a>
                 <div className="card-block">
                     <small className="text-muted">
