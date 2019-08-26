@@ -21,16 +21,16 @@ class App extends React.Component {
     this.fetchCurrentLocationISO_3166_1_alpha_2(
       locationsData.locations[0].ISO_3166_1_alpha_2
     );
-    // this.fetchTime(locationsData.locations[0].timezone_database_name);
-    // this.fetchEnglishNews(locationsData.locations[0].country);
-    // this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
-    // this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
-    // this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    // this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    // this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
-    // this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
-    // this.fetchWikiData(locationsData.locations[0].country);
-    // this.fetchPictures(locationsData.locations[0].country);
+    this.fetchTime(locationsData.locations[0].timezone_database_name);
+    this.fetchEnglishNews(locationsData.locations[0].country);
+    this.fetchHeadlinesNews(locationsData.locations[0].ISO_3166_1_alpha_2);
+    this.fetchTechNews(locationsData.locations[0].ISO_3166_1_alpha_2);
+    this.fetchWeather(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    this.fetchWeatherForecast(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    this.fetchMapCoordinates(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon);
+    this.fetchWebCamData(locationsData.locations[0].location.lat, locationsData.locations[0].location.lon, locationsData.locations[0].ISO_3166_1_alpha_2)
+    this.fetchWikiData(locationsData.locations[0].country);
+    this.fetchPictures(locationsData.locations[0].country);
   }
 
   handleClick = (
@@ -46,16 +46,16 @@ class App extends React.Component {
     this.fetchCurrentLocationISO_3166_1_alpha_2(
       currentLocationISO_3166_1_alpha_2
     );
-    // this.fetchTime(currentTimeZoneDBName);
-    // this.fetchEnglishNews(currentCountry);
-    // this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
-    // this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
-    // this.fetchWeather(currentLatitude, currentLongitude);
-    // this.fetchWeatherForecast(currentLatitude, currentLongitude);
-    // this.fetchMapCoordinates(currentLatitude, currentLongitude)
-    // this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
-    // this.fetchWikiData(currentCountry);
-    // this.fetchPictures(currentCountry);
+    this.fetchTime(currentTimeZoneDBName);
+    this.fetchEnglishNews(currentCountry);
+    this.fetchHeadlinesNews(currentLocationISO_3166_1_alpha_2);
+    this.fetchTechNews(currentLocationISO_3166_1_alpha_2);
+    this.fetchWeather(currentLatitude, currentLongitude);
+    this.fetchWeatherForecast(currentLatitude, currentLongitude);
+    this.fetchMapCoordinates(currentLatitude, currentLongitude)
+    this.fetchWebCamData(currentLatitude, currentLongitude, currentLocationISO_3166_1_alpha_2)
+    this.fetchWikiData(currentCountry);
+    this.fetchPictures(currentCountry);
   };
 
   fetchCurrentLocation = currentLocation => {

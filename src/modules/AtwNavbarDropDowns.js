@@ -9,21 +9,25 @@ class AtwNavbarDropDowns extends React.Component {
         <ul className="navbar-nav ml-2">
           <AtwNavbarDropDownContinent
             continentName={"Americas"}
+            icon={"fas fa-globe-americas"}
             handleClick={this.props.handleClick}
             locationsContinentData={this.props.locationsData.locations.filter(item => item.continent.includes("Americas"))}
           />
           <AtwNavbarDropDownContinent
             continentName={"Europe"}
+            icon={"fas fa-globe-europe"}
             handleClick={this.props.handleClick}
             locationsContinentData={this.props.locationsData.locations.filter(item => item.continent.includes("Europe"))}
           />
           <AtwNavbarDropDownContinent
             continentName={"Africa"}
+            icon={"fas fa-globe-africa"}
             handleClick={this.props.handleClick}
             locationsContinentData={this.props.locationsData.locations.filter(item => item.continent.includes("Africa"))}
           />
           <AtwNavbarDropDownContinent
             continentName={"Asia-Pacific"}
+            icon={"fas fa-globe-asia"}
             handleClick={this.props.handleClick}
             locationsContinentData={this.props.locationsData.locations.filter(item => item.continent.includes("Asia-Pacific"))}
           />

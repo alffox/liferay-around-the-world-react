@@ -7,9 +7,10 @@ class AtwNavbarDropDownContinent extends React.Component {
         return (
             <li className="nav-item dropdown mr-5">
                 <a className="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i className={this.props.icon + " mr-1"} />
                     {this.props.continentName}
                 </a>
-                <div className="dropdown-menu" id="americas">
+                <div className="dropdown-menu" id={this.props.continentName}>
                     {this.props.locationsContinentData &&
                         this.props.locationsContinentData.map((location, index) => {
                             return (

@@ -9,7 +9,7 @@ class AtwLocalDataRight extends React.Component {
   render() {
     return (
       <div className="col-md-4">
-        {/* <AtwWeatherCard
+        <AtwWeatherCard
           currentLocation={this.props.currentLocation}
           currentTemperature={this.props.currentTemperature}
           currentWeatherDescription={this.props.currentWeatherDescription}
@@ -27,7 +27,7 @@ class AtwLocalDataRight extends React.Component {
           wikiExtract={this.props.wikiExtract}
           wikiTitle={this.props.wikiTitle}
           wikiUrl={this.props.wikiUrl}
-        /> */}
+        />
       </div>
     );
   }

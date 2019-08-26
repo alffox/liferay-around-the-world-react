@@ -8,6 +8,7 @@ class AtwWeatherCard extends React.Component {
         return (
             <div className="card w-100 mt-1">
                 <AtwCardHeader
+                    icon="fas fa-cloud-sun-rain"
                     cardKey="Weather"
                     APIAttribution="OpenWeatherMap.org"
                     APIURL="https://openweathermap.org/"

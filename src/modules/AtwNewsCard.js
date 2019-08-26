@@ -8,6 +8,7 @@ class AtwNewsCard extends React.Component {
     return (
       <div className="card w-100 mt-1">
         <AtwCardHeader
+          icon="far fa-newspaper"
           cardKey="News"
           APIAttribution="News API"
           APIURL="https://newsapi.org/"
