@@ -1,7 +1,8 @@
 import React from "react";
 import AtwCurrentLocation from "./AtwCurrentLocation.js";
+// import AtwSearchLocation from "./AtwSearchLocation.js";
+import AtwNavbarDropDowns from "./AtwNavbarDropDowns.js";
 import AtwNavbarToggler from "./AtwNavbarToggler.js";
-import AtwSearchLocation from "./AtwSearchLocation.js";
 
 class AtwNavbar extends React.Component {
   render() {
@@ -15,7 +16,14 @@ class AtwNavbar extends React.Component {
             " flag-navbar mx-auto"
           }
         />
-        <AtwSearchLocation />
+        {/* <AtwSearchLocation
+          locationsData={this.props.locationsData}
+          handleClick={this.props.handleClick} /> */}
+        <AtwNavbarDropDowns
+          handleClick={this.props.handleClick}
+          locationsData={this.props.locationsData}
+          locationsDataAmericas={this.props.locationsData.locations.filter(item => item.continent.includes("Americas"))}
+        />
         <AtwNavbarToggler />
       </nav>
     );

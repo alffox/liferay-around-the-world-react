@@ -255,6 +255,8 @@ class App extends React.Component {
           currentLocationISO_3166_1_alpha_2={
             this.state.currentLocationISO_3166_1_alpha_2
           }
+          locationsData={locationsData}
+          handleClick={this.handleClick}
         />
         <AtwLocalData
           currentLocation={this.state.currentLocation}

@@ -1,20 +1,33 @@
 import React from "react";
 
+import AtwFlags from "./AtwFlags";
+
 class AtwSearchLocation extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      data: [<AtwFlags />],
+      input: ''
+    }
+  }
+
+  onChangeHandler(e) {
+    this.setState({
+      input: e.target.value,
+    })
+  }
+
   render() {
+    const list = this.state.data
+      .filter(d => this.state.input === '' || d.includes(this.state.input))
+      .map((d, index) => <li key={index}>{d}</li>);
+
     return (
-      <form className="form-inline">
-        <input
-          className="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
-    );
+      <div>
+        <input value={this.state.input} type="text" onChange={this.onChangeHandler.bind(this)} />
+        <ul>{list}</ul>
+      </div>)
   }
 }
 
