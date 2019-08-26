@@ -2,7 +2,7 @@
 
 # Liferay Around the World
 
-See a demo app version at: https://liferay-around-the-world.herokuapp.com/
+See a demo app version at: https://secure-plateau-23489.herokuapp.com/
 
 Liferay Around the World is a React Application showing information for Liferay locations around the world: https://www.liferay.com/locations
 
@@ -57,7 +57,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The app is created with the React framework: https://reactjs.org/
 The app is optimized for being used on mobile devices through [Bootstrap CSS](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
 
-A jQuery version of this same app is available at: https://github.com/alffox/around-the-world
+A jQuery version of this same app is available at: https://github.com/alffox/around-the-world-jquery
+
+The backend temporarily runs through: https://github.com/alffox/around-the-world-jquery/blob/master/index.js
 
 ### API / Credit
 - [News API](https://newsapi.org/)
