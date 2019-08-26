@@ -13,8 +13,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-lazyload": "^2.6.2",
-    "react-scripts": "3.0.1",
-    "@fortawesome/fontawesome-free": "^5.10.2"
+    "react-scripts": "3.0.1"
   },
   "engines": {
     "npm": "6.11.1",
