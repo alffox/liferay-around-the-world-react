@@ -18,7 +18,7 @@ And also: What's going on at my location at the moment? How can I get useful inf
 
 ## How to run the app?
 
-See a demo version, non optimized for production (long TTFB) at: https://secure-plateau-23489.herokuapp.com/, or:
+See a demo version, non optimized for production (long TTFB) at: https://liferay-around-the-world-react.herokuapp.com/, or:
 
 1. Clone the project on your machine: `git clone https://github.com/alffox/liferay-around-the-world-react.git`
 2. Navigate to the root directory: `cd liferay-around-the-world-react/`
@@ -90,7 +90,7 @@ The app is optimized for being used on mobile devices through [Bootstrap CSS](ht
 
 A jQuery version of this same app is available at: https://github.com/alffox/around-the-world-jquery
 
-The backend temporarily runs through: https://github.com/alffox/around-the-world-jquery/blob/master/index.js
+The backend runs through: https://github.com/alffox/around-the-world-backend/blob/master/index.js
 
 ### API / Credit
 
