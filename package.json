@@ -12,7 +12,7 @@
     "kind-of": "^6.0.3",
     "lodash": "^4.17.19",
     "lodash.template": "^4.5.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
